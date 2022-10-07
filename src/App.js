@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './components/Sidebar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Welcome from './components/Welcome'
+import TwitterFeed from './components/Brands/Twitter/TwitterFeed'
+import TwitterCompose from './components/Brands/Twitter/TwitterCompose'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='flex h-screen'>
+      <BrowserRouter>
+        <Sidebar />
+        <Routes>
+          <Route path='/' element={<Welcome />}></Route>
+          <Route path='/twitter'>
+            <Route path='feed' element={<TwitterFeed />} />
+            <Route path='compose' element={<TwitterCompose />} />
+          </Route>
+          <Route path='/linkedin'></Route>
+          <Route path='/instagram'></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
