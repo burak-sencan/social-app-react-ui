@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import TwitterSidebar from './Brands/Twitter/TwitterSidebar'
-import LinkedinSidebar from './Brands/Linkedin/LinkedinSidebar'
-import InstagramSidebar from './Brands/Instagram/InstagramSidebar'
-import { TwitterLogo, LinkedinLogo, InstagramLogo } from '../assets/images'
+import Brand3Sidebar from './Brands/Brand3/Brand3Sidebar'
+import Brand2Sidebar from './Brands/Brand2/Brand2Sidebar'
+import Brand1Sidebar from './Brands/Brand1/Brand1Sidebar'
+import { Brand1, Brand2, Brand3 } from '../assets/images'
 
 function Sidebar() {
-  const [brand, setBrand] = useState('Twitter')
+  const [brand, setBrand] = useState('Brand1')
   return (
     <>
       <div className='center bg-sidebarSociality text-2xl p-2'>
@@ -20,35 +20,50 @@ function Sidebar() {
           <button
             className=' relative brand-icons '
             onClick={() => {
-              setBrand('Twitter')
+              setBrand('Brand1')
             }}
           >
             <span className='notification-circle' style={{ color: 'white', backgroundColor: 'rgb(58,193,169)' }}>
               99
             </span>
-            <img className='transition' style={brand === 'Twitter' ? { opacity: '1' } : { opacity: '0.4' }} src={TwitterLogo} alt='' />
+            <img
+              className='transition bg-white p-1 rounded-md '
+              style={brand === 'Brand1' ? { opacity: '1' } : { opacity: '0.4' }}
+              src={Brand1}
+              alt=''
+            />
           </button>
           <button
             className='brand-icons '
             onClick={() => {
-              setBrand('Linkedin')
+              setBrand('Brand2')
             }}
           >
-            <img className='transition' style={brand === 'Linkedin' ? { opacity: '1' } : { opacity: '0.4' }} src={LinkedinLogo} alt='' />
+            <img
+              className='transition bg-white p-1 rounded-md '
+              style={brand === 'Brand2' ? { opacity: '1' } : { opacity: '0.4' }}
+              src={Brand2}
+              alt=''
+            />
           </button>
           <button
-            className='brand-icons '
+            className='brand-icons  '
             onClick={() => {
-              setBrand('Instagram')
+              setBrand('Brand3')
             }}
           >
-            <img className='transition' style={brand === 'Instagram' ? { opacity: '1' } : { opacity: '0.4' }} src={InstagramLogo} alt='' />
+            <img
+              className='transition bg-white p-1 rounded-md '
+              style={brand === 'Brand3' ? { opacity: '1' } : { opacity: '0.4' }}
+              src={Brand3}
+              alt=''
+            />
           </button>
         </div>
         <div>
-          {brand === 'Twitter' && <TwitterSidebar />}
-          {brand === 'Linkedin' && <LinkedinSidebar />}
-          {brand === 'Instagram' && <InstagramSidebar />}
+          {brand === 'Brand1' && <Brand1Sidebar />}
+          {brand === 'Brand2' && <Brand2Sidebar />}
+          {brand === 'Brand3' && <Brand3Sidebar />}
         </div>
       </div>
     </>

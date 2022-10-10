@@ -14,7 +14,7 @@ import { MdNotificationsActive } from 'react-icons/md'
 import { AiOutlineLineChart } from 'react-icons/ai'
 import { BsPencilSquare, BsDot } from 'react-icons/bs'
 
-function TwitterSidebar() {
+function Brand3Sidebar() {
   const [openSummary, setOpenSummary] = React.useState(false)
   const [sidebarCollapse, setSidebarCollapse] = React.useState('')
   const [sidebarLink, setSidebarLink] = React.useState('')
@@ -47,7 +47,7 @@ function TwitterSidebar() {
         <ListItemText primary='SUMMARY' />
         {openSummary ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Link to='/twitter/summary'>
+      <Link to='/brand3/summary'>
         <Collapse in={openSummary} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
             <ListItemButton
@@ -81,7 +81,7 @@ function TwitterSidebar() {
       </ListItemButton>
       <Collapse in={openPublish} timeout='auto' unmountOnExit>
         <List component='div' disablePadding>
-          <Link to='/twitter/compose'>
+          <Link to='/brand3/compose'>
             <ListItemButton
               onClick={() => {
                 setSidebarCollapse('publish')
@@ -95,7 +95,7 @@ function TwitterSidebar() {
               <ListItemText style={sidebarLink === 'compose' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} primary='Compose' />
             </ListItemButton>
           </Link>
-          <Link to='/twitter/feed'>
+          <Link to='/brand3/feed'>
             <ListItemButton
               onClick={() => {
                 setSidebarCollapse('publish')
@@ -115,4 +115,4 @@ function TwitterSidebar() {
   )
 }
 
-export default TwitterSidebar
+export default Brand3Sidebar

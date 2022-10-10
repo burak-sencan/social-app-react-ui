@@ -1,7 +1,11 @@
 import { BsFillCircleFill } from 'react-icons/bs'
 import { Avatar } from '../../../assets/images/index'
 import PostByDate from './PostByDate'
-function TwitterFeed() {
+import { useSelector, useDispatch } from 'react-redux'
+
+function Brand3Feed() {
+  const postData = useSelector((state) => state.post.postsByDate)
+
   return (
     <>
       <div className='flex  h-12  items-center justify-between'>
@@ -31,15 +35,11 @@ function TwitterFeed() {
           <img className='h-12 w-12 rounded-full shadow-md' src={Avatar} alt='' />
         </div>
       </div>
-
-      <PostByDate />
-      <PostByDate />
-      <PostByDate />
-      <PostByDate />
-      <PostByDate />
-      <PostByDate />
+      {Object.entries(postData).map(([key, value]) => (
+        <PostByDate postDate={key} data={value} />
+      ))}
     </>
   )
 }
 
-export default TwitterFeed
+export default Brand3Feed
