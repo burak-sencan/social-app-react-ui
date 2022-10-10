@@ -2,15 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Custom css */
+.brand-icons {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 16px;
+}
+
+/* Tools */
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.brand-icons {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 16px;
+.w-max-screen {
+  max-width: 100vw;
 }
 
 .notification-circle {
@@ -21,11 +32,8 @@
   padding: 0 3px;
   font-size: small;
 }
-/*Overides*/
+
+/* Overides */
 .MuiListItemIcon-root {
   min-width: 30px !important;
-}
-
-.sidebar-icon{
-  color: rgb(245, 68, 97);
 }

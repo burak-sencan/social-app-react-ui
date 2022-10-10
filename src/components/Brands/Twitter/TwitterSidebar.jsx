@@ -16,61 +16,97 @@ import { BsPencilSquare, BsDot } from 'react-icons/bs'
 
 function TwitterSidebar() {
   const [openSummary, setOpenSummary] = React.useState(false)
+  const [sidebarCollapse, setSidebarCollapse] = React.useState('')
+  const [sidebarLink, setSidebarLink] = React.useState('')
+
   const [openPublish, setOpenPublish] = React.useState(false)
 
   return (
     <div className='flex flex-col'>
       <Link to='/twitter/notification'>
-        <ListItemButton>
+        <ListItemButton onClick={() => setSidebarCollapse('notification')} style={sidebarCollapse === 'notification' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}>
           <ListItemIcon>
-            <MdNotificationsActive className='sidebar-icon' />
+            <MdNotificationsActive style={sidebarCollapse === 'notification' ? { color: 'white' } : ''} className='text-red' />
           </ListItemIcon>
           <ListItemText primary='NOTIFICATIONS' />
+          <ListItemText className='ml-1 px-2 border rounded-md  border-green' primary='29' />
+
         </ListItemButton>
       </Link>
 
-      <ListItemButton onClick={(prev) => setOpenSummary(!openSummary)}>
+      <ListItemButton
+        style={sidebarCollapse === 'summarry' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
+        onClick={() => {
+          setOpenSummary(!openSummary)
+          setSidebarCollapse('summarry')
+        }}
+      >
         <ListItemIcon>
-          <AiOutlineLineChart className='sidebar-icon' />
+          <AiOutlineLineChart style={sidebarCollapse === 'summarry' ? { color: 'white' } : ''} className='text-red' />
         </ListItemIcon>
         <ListItemText primary='SUMMARY' />
+        {openSummary ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Link to='/twitter/summary'>
         <Collapse in={openSummary} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton
+              onClick={() => {
+                setSidebarLink('test')
+                setSidebarCollapse('summarry')
+              }}
+              sx={{ pl: 4 }}
+            >
               <ListItemIcon>
-                <BsDot className='sidebar-icon' />
+                <BsDot style={sidebarLink === 'test' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary='Test' />
+              <ListItemText style={sidebarLink === 'test' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} primary='Test' />
             </ListItemButton>
           </List>
         </Collapse>
       </Link>
 
-      <ListItemButton onClick={(prev) => setOpenPublish(!openPublish)}>
+      <ListItemButton
+        style={sidebarCollapse === 'publish' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
+        onClick={(prev) => {
+          setOpenPublish(!openPublish)
+          setSidebarCollapse('publish')
+        }}
+      >
         <ListItemIcon>
-          <BsPencilSquare className='sidebar-icon' />
+          <BsPencilSquare style={sidebarCollapse === 'publish' ? { color: 'white' } : ''} className='text-red' />
         </ListItemIcon>
-        <ListItemText primary='Inbox' />
+        <ListItemText primary='PUBLISH' />
         {openPublish ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={openPublish} timeout='auto' unmountOnExit>
         <List component='div' disablePadding>
           <Link to='/twitter/compose'>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton
+              onClick={() => {
+                setSidebarCollapse('publish')
+                setSidebarLink('compose')
+              }}
+              sx={{ pl: 4 }}
+            >
               <ListItemIcon>
-                <BsDot className='sidebar-icon' />
+                <BsDot style={sidebarLink === 'compose' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary='Compose' />
+              <ListItemText style={sidebarLink === 'compose' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} primary='Compose' />
             </ListItemButton>
           </Link>
           <Link to='/twitter/feed'>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton
+              onClick={() => {
+                setSidebarCollapse('publish')
+                setSidebarLink('feed')
+              }}
+              sx={{ pl: 4 }}
+            >
               <ListItemIcon>
-                <BsDot className='sidebar-icon' />
+                <BsDot style={sidebarLink === 'feed' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary='Feed' />
+              <ListItemText style={sidebarLink === 'feed' ? { color: 'rgb(245, 68, 97)' } : { color: 'white' }} primary='Feed' />
             </ListItemButton>
           </Link>
         </List>

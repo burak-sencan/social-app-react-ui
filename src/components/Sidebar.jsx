@@ -9,14 +9,14 @@ import { TwitterLogo, LinkedinLogo, InstagramLogo } from '../assets/images'
 function Sidebar() {
   const [brand, setBrand] = useState('Twitter')
   return (
-    <div className='flex flex-col w-72 bg-sidebar-brand '>
-      <div className='center bg-sidebar-sociality text-2xl p-2'>
+    <>
+      <div className='center bg-sidebarSociality text-2xl p-2'>
         <Link to='/'>
           <span className='font-bold'>sociality</span> .io
         </Link>
       </div>
-      <div className='flex h-full ' style={{ color: 'white' }}>
-        <div className='flex flex-col p-4  '>
+      <div className='flex h-full text-white'>
+        <div className='flex flex-col p-4 bg-sidebar '>
           <button
             className=' relative brand-icons '
             onClick={() => {
@@ -51,7 +51,7 @@ function Sidebar() {
           {brand === 'Instagram' && <InstagramSidebar />}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
