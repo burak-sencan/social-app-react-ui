@@ -5,9 +5,16 @@ import Brand3Sidebar from './Brands/Brand3/Brand3Sidebar'
 import Brand2Sidebar from './Brands/Brand2/Brand2Sidebar'
 import Brand1Sidebar from './Brands/Brand1/Brand1Sidebar'
 import { Brand1, Brand2, Brand3 } from '../assets/images'
+import { useSelector, useDispatch } from 'react-redux'
+import { choseBrand } from '../features/sidebar/sidebarSlice'
 
 function Sidebar() {
-  const [brand, setBrand] = useState('Brand1')
+  // const [brand, setBrand] = useState('Brand1')
+  const brand = useSelector((state) => state.sidebar.brand)
+  console.log(brand)
+
+  const dispatch = useDispatch()
+
   return (
     <>
       <div className='center bg-sidebarSociality text-2xl p-2'>
@@ -20,12 +27,9 @@ function Sidebar() {
           <button
             className=' relative brand-icons '
             onClick={() => {
-              setBrand('Brand1')
+              dispatch(choseBrand('Brand1'))
             }}
           >
-            <span className='notification-circle' style={{ color: 'white', backgroundColor: 'rgb(58,193,169)' }}>
-              99
-            </span>
             <img
               className='transition bg-white p-1 rounded-md '
               style={brand === 'Brand1' ? { opacity: '1' } : { opacity: '0.4' }}
@@ -36,7 +40,7 @@ function Sidebar() {
           <button
             className='brand-icons '
             onClick={() => {
-              setBrand('Brand2')
+              dispatch(choseBrand('Brand2'))
             }}
           >
             <img
@@ -47,11 +51,14 @@ function Sidebar() {
             />
           </button>
           <button
-            className='brand-icons  '
+            className='relative brand-icons  '
             onClick={() => {
-              setBrand('Brand3')
+              dispatch(choseBrand('Brand3'))
             }}
           >
+            <span className='notification-circle' style={{ color: 'white', backgroundColor: 'rgb(58,193,169)' }}>
+              29
+            </span>
             <img
               className='transition bg-white p-1 rounded-md '
               style={brand === 'Brand3' ? { opacity: '1' } : { opacity: '0.4' }}

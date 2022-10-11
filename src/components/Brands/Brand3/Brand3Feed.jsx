@@ -1,7 +1,7 @@
 import { BsFillCircleFill } from 'react-icons/bs'
 import { Avatar } from '../../../assets/images/index'
 import PostByDate from './PostByDate'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Brand3Feed() {
   const postData = useSelector((state) => state.post.postsByDate)
