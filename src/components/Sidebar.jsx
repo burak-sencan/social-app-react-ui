@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Brand3Sidebar from './Brands/Brand3/Brand3Sidebar'
@@ -9,10 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { choseBrand } from '../features/sidebar/sidebarSlice'
 
 function Sidebar() {
-  // const [brand, setBrand] = useState('Brand1')
   const brand = useSelector((state) => state.sidebar.brand)
-  console.log(brand)
-
   const dispatch = useDispatch()
 
   return (

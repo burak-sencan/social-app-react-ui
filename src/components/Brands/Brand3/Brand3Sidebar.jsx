@@ -1,5 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  choseSidebarCollapse,
+  choseSidebarLink,
+  openSummaryCollapse,
+  openPublishCollapse,
+  openEngageCollapse,
+  openListenCollapse,
+  openReportCollapse,
+} from '../../../features/sidebar/sidebarSlice'
 
 import List from '@mui/material/List'
 import ListItemButton from '@mui/material/ListItemButton'
@@ -17,19 +27,22 @@ import { TbWaveSine } from 'react-icons/tb'
 import { RiBarChartFill } from 'react-icons/ri'
 
 function Brand3Sidebar() {
-  const [sidebarCollapse, setSidebarCollapse] = useState('')
-  const [sidebarLink, setSidebarLink] = useState('')
-  const [openSummary, setOpenSummary] = useState(false)
-  const [openPublish, setOpenPublish] = useState(false)
-  const [openEngage, setOpenEngage] = useState(false)
-  const [openListen, setOpenListen] = useState(false)
-  const [openReport, setOpenReport] = useState(false)
+  const sidebarCollapse = useSelector((state) => state.sidebar.sidebarCollapse)
+  const sidebarLink = useSelector((state) => state.sidebar.sidebarLink)
+
+  const openSummary = useSelector((state) => state.sidebar.openSummary)
+  const openPublish = useSelector((state) => state.sidebar.openPublish)
+  const openEngage = useSelector((state) => state.sidebar.openEngage)
+  const openListen = useSelector((state) => state.sidebar.openListen)
+  const openReport = useSelector((state) => state.sidebar.openReport)
+
+  const dispatch = useDispatch()
 
   return (
     <div className='flex flex-col'>
       <Link to='/twitter/notification'>
         <ListItemButton
-          onClick={() => setSidebarCollapse('notification')}
+          onClick={() => dispatch(choseSidebarCollapse('notification'))}
           style={sidebarCollapse === 'notification' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         >
           <ListItemIcon>
@@ -44,14 +57,14 @@ function Brand3Sidebar() {
       </Link>
 
       <ListItemButton
-        style={sidebarCollapse === 'summarry' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
+        style={sidebarCollapse === 'summary' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         onClick={() => {
-          setOpenSummary(!openSummary)
-          setSidebarCollapse('summarry')
+          dispatch(openSummaryCollapse(!openSummary))
+          dispatch(choseSidebarCollapse('summary'))
         }}
       >
         <ListItemIcon>
-          <AiOutlineLineChart style={sidebarCollapse === 'summarry' ? { color: 'white' } : ''} className='text-red' />
+          <AiOutlineLineChart style={sidebarCollapse === 'summary' ? { color: 'white' } : ''} className='text-red' />
         </ListItemIcon>
         <ListItemText primary='SUMMARY' />
         {openSummary ? <ExpandLess /> : <ExpandMore />}
@@ -61,8 +74,8 @@ function Brand3Sidebar() {
           <List component='div' disablePadding>
             <ListItemButton
               onClick={() => {
-                setSidebarLink('test')
-                setSidebarCollapse('summarry')
+                dispatch(choseSidebarLink('test'))
+                dispatch(choseSidebarCollapse('summary'))
               }}
               sx={{ pl: 4 }}
             >
@@ -81,8 +94,8 @@ function Brand3Sidebar() {
       <ListItemButton
         style={sidebarCollapse === 'publish' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         onClick={(prev) => {
-          setOpenPublish(!openPublish)
-          setSidebarCollapse('publish')
+          dispatch(openPublishCollapse(!openPublish))
+          dispatch(choseSidebarCollapse('publish'))
         }}
       >
         <ListItemIcon>
@@ -96,8 +109,8 @@ function Brand3Sidebar() {
           <Link to='/brand3/compose'>
             <ListItemButton
               onClick={() => {
-                setSidebarCollapse('publish')
-                setSidebarLink('compose')
+                dispatch(choseSidebarCollapse('publish'))
+                dispatch(choseSidebarLink('compose'))
               }}
               sx={{ pl: 4 }}
             >
@@ -113,8 +126,8 @@ function Brand3Sidebar() {
           <Link to='/brand3/feed'>
             <ListItemButton
               onClick={() => {
-                setSidebarCollapse('publish')
-                setSidebarLink('feed')
+                dispatch(choseSidebarCollapse('publish'))
+                dispatch(choseSidebarLink('feed'))
               }}
               sx={{ pl: 4 }}
             >
@@ -133,8 +146,8 @@ function Brand3Sidebar() {
       <ListItemButton
         style={sidebarCollapse === 'engage' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         onClick={() => {
-          setOpenEngage(!openEngage)
-          setSidebarCollapse('engage')
+          dispatch(openEngageCollapse(!openEngage))
+          dispatch(choseSidebarCollapse('engage'))
         }}
       >
         <ListItemIcon>
@@ -147,8 +160,8 @@ function Brand3Sidebar() {
       <ListItemButton
         style={sidebarCollapse === 'listen' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         onClick={() => {
-          setOpenListen(!openListen)
-          setSidebarCollapse('listen')
+          dispatch(openListenCollapse(!openListen))
+          dispatch(choseSidebarCollapse('listen'))
         }}
       >
         <ListItemIcon>
@@ -161,8 +174,8 @@ function Brand3Sidebar() {
       <ListItemButton
         style={sidebarCollapse === 'report' ? { backgroundColor: 'rgb(245, 68, 97)' } : { color: 'white' }}
         onClick={() => {
-          setOpenReport(!openReport)
-          setSidebarCollapse('report')
+          dispatch(openReportCollapse(!openReport))
+          dispatch(choseSidebarCollapse('report'))
         }}
       >
         <ListItemIcon>
