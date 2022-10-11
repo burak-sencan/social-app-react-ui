@@ -10,8 +10,11 @@ const initialState = {
         status: 3,
         entry: {
           type: 'photo',
-          message: 'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
-          image: ['https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab486274592018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg'],
+          message:
+            'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
+          image: [
+            'https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab486274592018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg',
+          ],
           video: null,
         },
         updated_at: '2021-06-17 08:41:13',
@@ -31,8 +34,11 @@ const initialState = {
         status: 3,
         entry: {
           type: 'photo',
-          message: 'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
-          image: ['https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg'],
+          message:
+            'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
+          image: [
+            'https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg',
+          ],
         },
         updated_at: '2021-06-17 08:41:15',
         created_at: '2021-06-17 08:40:52',
@@ -51,8 +57,11 @@ const initialState = {
         status: 3,
         entry: {
           type: 'photo',
-          message: 'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
-          image: ['https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg'],
+          message:
+            'Lorem ipsum dolor sit amet, consecteturat\r\n adipiscing elit, sed do eiusmod tempor \r\nincididunt? http://bit.ly/145HD7S ',
+          image: [
+            'https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_0A0szw7OSDIVt2rq80.jpeg',
+          ],
         },
         updated_at: '2021-06-17 08:41:01',
         created_at: '2021-06-17 08:40:50',
@@ -74,7 +83,9 @@ const initialState = {
         entry: {
           type: 'photo',
           message: 'Lorem ipsum dolor sit amet, consecteturat \r\nadipiscing elit, sed do eiusmod.',
-          image: ['https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_oD3qc1vlVTmg8pwWaJ.jpeg'],
+          image: [
+            'https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_oD3qc1vlVTmg8pwWaJ.jpeg',
+          ],
         },
         updated_at: '2021-06-17 08:42:18',
         created_at: '2021-06-17 08:42:18',
@@ -93,7 +104,9 @@ const initialState = {
         entry: {
           type: 'photo',
           message: 'Lorem ipsum dolor sit amet, consecteturat \r\nadipiscing elit, sed do eiusmod.',
-          image: ['https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_qPJUrz2XxgneyAplXE.jpeg'],
+          image: [
+            'https://s3-eu-west-1.amazonaws.com/a6apptest/public/files/58bab4018803fa0008413733_qPJUrz2XxgneyAplXE.jpeg',
+          ],
         },
         updated_at: '2021-06-17 08:42:44',
         created_at: '2021-06-17 08:42:44',
@@ -112,7 +125,7 @@ const initialState = {
 export const postSlice = createSlice({
   name: 'post',
   initialState,
-  reducers:{}
+  reducers: {},
 })
 
 // Action creators are generated for each case reducer function

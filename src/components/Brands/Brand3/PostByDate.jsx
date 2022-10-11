@@ -5,7 +5,7 @@ function PostByDate({ postDate, data }) {
   return (
     <div className='flex flex-col'>
       <div>
-        <p className='text-published text-lg'>Published day {postDate}</p>
+        <p className='text-published text-lg'>{postDate}</p>
       </div>
       <div className='flex gap-2 p-2 overflow-x-auto'>
         {data.map((post) => (
