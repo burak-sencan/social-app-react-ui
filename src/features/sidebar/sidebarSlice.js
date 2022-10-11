@@ -39,6 +39,18 @@ export const sidebarSlice = createSlice({
     openReportCollapse: (state, action) => {
       state.openReport = action.payload
     },
+    // handleWelcomeButton: (state) => {
+    //   state.openPublish= true,
+    //   state.sidebarCollapse= "public",
+    //   state.sidebarLink= "feed",
+    // },
+    handleWelcome: (state) => {
+      state.brand = 'Brand3'
+      state.openPublish = true
+      state.sidebarCollapse = 'publish'
+      state.sidebarLink = 'feed'
+      console.log("deneme")
+    },
   },
 })
 
@@ -51,6 +63,7 @@ export const {
   openEngageCollapse,
   openListenCollapse,
   openReportCollapse,
+  handleWelcome,
 } = sidebarSlice.actions
 
 export default sidebarSlice.reducer

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -12,6 +12,27 @@
   width: 32px;
   height: 32px;
   margin-bottom: 16px;
+}
+.welcome {
+  transform: rotate(-50deg);
+  animation: mymove 1s infinite;
+}
+
+@keyframes mymove {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: 20% 40%;
+  }
+
+  50% {
+    transform: rotate(-50deg);
+    transform-origin: 20% 40%;
+  }
+  100%{
+    transform: rotate(0deg);
+    transform-origin: 20% 40%;
+
+  }
 }
 
 /* Tools */
